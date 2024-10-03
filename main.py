@@ -29,7 +29,6 @@ ce_loss = CELoss()
 # Optimizer
 sgd = SGD(nn.layers, learning_rate=0.005)
 
-
 # Training loop
 num_epochs = 50
 train_losses, val_losses = [], []

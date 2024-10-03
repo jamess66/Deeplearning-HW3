@@ -1,6 +1,5 @@
 import torch
 
-
 class CELoss:
     """
     Multi-class Cross Entropy Loss
@@ -23,7 +22,7 @@ class CELoss:
         """
 
         ### START CODE HERE ### (≈ 1-2 lines of code)
-        loss = -torch.sum(Y * torch.log_softmax(F, dim=0)) / Y.shape[1]
+        loss = -torch.sum(Y * torch.log_softmax(F, dim=0)) / F.shape[1]
         ### END CODE HERE ###
 
         assert(Y.shape == F.shape)
@@ -40,13 +39,14 @@ class CELoss:
         """
 
         ### START CODE HERE ### (≈ 1 lines of code)
-        dF = (torch.softmax(self.F, dim=0) - self.Y) / self.Y.shape[1]
+        dF = (torch.softmax(self.F, dim=0) - self.Y) / self.F.shape[1]
         ### END CODE HERE ###
 
         return dF
 
 
 def debug():
+
     (D_i, N) = 3, 4
 
     Y = torch.tensor([
@@ -55,7 +55,6 @@ def debug():
         [0, 1, 0, 0],
     ], dtype=torch.float32)
     print('Y =', Y)
-
     F = torch.tensor([
         [-2, 3, 8, -7],
         [10, 2, 8, 4],

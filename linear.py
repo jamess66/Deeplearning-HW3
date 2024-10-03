@@ -57,9 +57,9 @@ class Linear:
         """
 
         ### START CODE HERE ### (≈ 3 lines of code)
-        dW = torch.matmul(dF, self.H.T)
-        db = torch.sum(dF, dim=1, keepdim=True) / self.H.shape[1]
-        dH = torch.matmul(self.W.T, dF)
+        dW = torch.matmul(dF, self.H.t())
+        db = torch.sum(dF, dim=1, keepdim=True)
+        dH = torch.matmul(self.W.t(), dF)
         ### END CODE HERE ###
 
         self.dW = dW.clone()

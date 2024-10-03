@@ -20,7 +20,7 @@ class ReLU:
         :return: post-activation
         """
         ### START CODE HERE ### (≈ 1 line of code)
-        H = torch.maximum(F, torch.zeros_like(F))
+        H = torch.max(F, torch.zeros_like(F))
         ###  END CODE HERE  ###
 
         if training:
@@ -38,7 +38,7 @@ class ReLU:
         """
 
         ### START CODE HERE ### (≈ 1 lines of code)
-        dF = dH * (self.F > 0)
+        dF = dH * (self.F > 0).float()
         ### END CODE HERE ###
 
         assert (dF.shape == self.F.shape)
